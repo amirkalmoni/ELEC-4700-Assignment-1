@@ -19,7 +19,7 @@ kb = 1.3806504e-23;               % Boltzmann constant
 eps0 = 8.854187817e-12;           % vacuum permittivity
 mu0 = 1.2566370614e-6;            % vacuum permeability
 c = 299792458;                    % speed of light
-g = 9.80665;                      % metres (32.1740 ft) per s²
+g = 9.80665;                      % metres (32.1740 ft) per sÂ²
 am = 1.66053892e-27;
 
 effectmass = 0.26 * m_0;
@@ -175,8 +175,8 @@ for i = 1:200
     ylim([0 length]);
     hold on
     
-    %%This section of code just draws the lines of the inner rectangle boxes included as
-    %enhancements in the Question 3 part 1
+    %%This section of code draws the lines of the enhancement
+    
     line([0.85*width/2 0.85*width/2], [length 2*length/3]);
     line([1.15*width/2 1.15*width/2], [length 2*length/3]);
     line([0.85*width/2 1.15*width/2], [length length]);
@@ -189,7 +189,7 @@ for i = 1:200
     
 end
 
-%%plot of temperature versus timestep for question 2
+%%plot of temperature versus time
 figure (2)
 plot(tmps, temparray);
 xlabel('time');
@@ -197,7 +197,7 @@ ylabel('Average Temperature');
 title('Temperature vs Time');
 hold on
 
-%meanfreepath and meanfreetime Calculations
+%  meanfreepath and meanfreetime Calculations
 meanfreetime = (sumtdiff * timestep)/numcol;
 meanfreepath = mean(vrms) * meanfreetime;
 
@@ -205,8 +205,6 @@ fprintf("The Mean Free Time is = %12f", meanfreetime);
 fprintf("The Mean Free Path is = %12f", meanfreepath);
 
 %%Question 3.3 and 3.4
-%This section uses a meshgrid to create an electron density map and
-%temperature map, iterating through the electron position vectors and updating positions with corresponding values.
 
 [xgr, ygr] = meshgrid(0:(width/10):width, 0:(length/10):length);
 elecmatrx = zeros(11, 11);
@@ -234,7 +232,7 @@ for e = 1:10
 end
 
 %%Question 3.3 and 3.4 - Creating the plots of the histogram from question
-%2, and the electron densitry map, along with the temp_Keature map.
+%2, and the electron density map, along with the temperature map.
 
 figure(3); hist(vrms, 10); 
 title('Histogram of Thermal Velocities');
@@ -243,4 +241,4 @@ figure(4); surf(elecmatrx);
 title('Electron Density Map');
 
 figure(5); surf(temprmatrx);
-title('Temperature Mat');
+title('Temperature Map');
